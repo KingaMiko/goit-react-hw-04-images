@@ -8,9 +8,16 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 
 ReactModal.setAppElement('#root');
 
+const mapImagesToItems = images =>
+  images.map(image => ({
+    original: image.largeImageURL,
+    thumbnail: image.webformatURL,
+  }));
+
 const Modal = ({ images, currentIndex, onClose }) => {
   const [loaded, setLoaded] = useState(false);
   const imageGalleryRef = useRef(null);
+  const items = mapImagesToItems(images);
 
   useEffect(() => {
     setLoaded(false);
@@ -23,14 +30,17 @@ const Modal = ({ images, currentIndex, onClose }) => {
     }
   }, [currentIndex]);
 
-  const items = images.map(image => ({
-    original: image.largeImageURL,
-    thumbnail: image.webformatURL,
-  }));
-
   const handleLoad = () => {
     setLoaded(true);
   };
+
+  const modalIsOpen = currentIndex !== null && currentIndex !== undefined;
+
+  useEffect(() => {
+    if (!modalIsOpen) {
+      setLoaded(false);
+    }
+  }, [modalIsOpen]);
 
   return (
     <ReactModal
