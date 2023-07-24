@@ -29,7 +29,7 @@ const Searchbar = ({ onSubmit }) => {
 
   const toggleSearchMode = useCallback(() => {
     setIsActiveSearchButton(
-      previsActiveSearchButton => !previsActiveSearchButton
+      prevIsActiveSearchButton => !prevIsActiveSearchButton
     );
   }, []);
 
