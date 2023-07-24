@@ -1,0 +1,42 @@
+.react-image-gallery-slide {
+  min-height: 500px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+  max-width: 60%;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-gallery-slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.image-gallery-fullscreen-modal .image-gallery-slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
